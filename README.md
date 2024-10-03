@@ -1,6 +1,6 @@
-# multitenant-cpq-tool
+# Multitenant CPQ Tool
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a DEMO project to demonstrate metadata driven frontend as per the requirements of "Expedite Commerce"
 
 ## Recommended IDE Setup
 
