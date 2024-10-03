@@ -1,12 +1,13 @@
-import { computed, ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
 import { UiConfigService } from '../services/api.service'
+import type { Page, uiConfig } from '@/types/uiConfig'
 
 export const useUiConfigStore = defineStore('uiConfig', () => {
-  const applicationUiJSON = ref()
+  const applicationUiJSON: Ref<uiConfig | null> = ref(null)
 
   const applicationRoutes = computed(() => {
-    return applicationUiJSON.value?.pages?.map((page) => {
+    return applicationUiJSON.value?.pages?.map((page: Page) => {
       return {
         name: page.name,
         path: `/${page.route}`,
@@ -19,7 +20,7 @@ export const useUiConfigStore = defineStore('uiConfig', () => {
     return applicationUiJSON.value?.header
   })
 
-  const getUiConfig = async (tenantId) => {
+  const getUiConfig = async (tenantId: number) => {
     try {
       const { data } = await UiConfigService.get(tenantId)
       applicationUiJSON.value = data
@@ -30,7 +31,7 @@ export const useUiConfigStore = defineStore('uiConfig', () => {
   }
 
   const getPageConfig = (name: string) => {
-    return applicationUiJSON.value?.pages.find((page) => page.name === name)
+    return applicationUiJSON.value?.pages.find((page: Page) => page.name === name)
   }
 
   return { applicationUiJSON, applicationRoutes, applicationHeader, getUiConfig, getPageConfig }

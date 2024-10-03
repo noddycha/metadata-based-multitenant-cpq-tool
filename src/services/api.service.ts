@@ -26,7 +26,7 @@ const ApiService = {
 export default ApiService
 
 export const UiConfigService = {
-  get(tenantId: string) {
+  get(tenantId: number) {
     return ApiService.get(`http://127.0.0.1:4000/ui-configuration?tenantId=${tenantId}`)
   }
 }

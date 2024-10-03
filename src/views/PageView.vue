@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useUiConfigStore } from '../stores/uiConfig';
 import MetadataProcessor from '../components/MetadataProcessor.vue'
 
 const uiConfigStore = useUiConfigStore()
 const route = useRoute();
-const renderComponent = ref(true)
+const renderComponent: Ref<boolean> = ref(true)
 
 watch(route, (to) => {
   renderComponent.value = false
