@@ -14,22 +14,22 @@ onMounted (async () => {
   await getUrlQueryParams()
 
   // Load UI config from the backend through the API
-  await uiConfigStore.getUiConfig(route.query.tenantId || 1001)
+  await uiConfigStore.getUiConfig(parseInt(route.query.tenantId as string) || 1001)
 
   // Adding route of each of the pages from the UI Config
-  uiConfigStore.applicationRoutes.forEach(route => {
+  uiConfigStore.applicationRoutes?.forEach(route => {
     router.addRoute({ path: route.path, name: route.name, component: PageView })
   });
 
   // Identifying and navigating user to defaultPage on load of the page
-  const defaultRoute = uiConfigStore.applicationRoutes.find((route) => route.defaultPage)
+  const defaultRoute = uiConfigStore.applicationRoutes?.find((route) => route.defaultPage)
   router.push({
-    name: defaultRoute.name,
+    name: defaultRoute?.name,
     query: route.query
   })
 })
 
-const getUrlQueryParams = async () => {    
+const getUrlQueryParams = async () => {
   await router.isReady()
 }
 </script>

@@ -41,6 +41,7 @@ export interface Data {
   method?: string
   URL?: string
   path?: string
+  body?: string
 }
 
 export interface Action {
