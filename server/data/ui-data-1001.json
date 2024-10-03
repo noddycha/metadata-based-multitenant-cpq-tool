@@ -1,0 +1,30 @@
+[
+  {
+    "product_id": 9001,
+    "product_name": "Microsoft Windows 11 Home Edition",
+    "product_qty": 0,
+    "product_desc": "The refreshed design of Windows 11 enables you to do what you want effortlessly",
+    "product_price": 15000
+  },
+  {
+    "product_id": 9002,
+    "product_name": "Microsoft 365 & Office",
+    "product_qty": 0,
+    "product_desc": "The complete office suite for all enterprise softwares",
+    "product_price": 8900
+  },
+  {
+    "product_id": 9003,
+    "product_name": "Microsoft Teams",
+    "product_qty": 0,
+    "product_desc": "The best integrated communicator for the enterprises",
+    "product_price": 5600
+  },
+  {
+    "product_id": 9004,
+    "product_name": "Microsoft Copilot",
+    "product_qty": 0,
+    "product_desc": "An AI-powered productivity tool that helps users work more efficiently and creatively",
+    "product_price": 1300
+  }
+]

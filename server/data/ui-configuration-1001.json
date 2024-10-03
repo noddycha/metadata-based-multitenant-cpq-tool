@@ -1,0 +1,146 @@
+{
+  "tenantId": 1001,
+  "tenantName": "Microsoft Corp",
+  "defaultLanguage": "EN",
+  "currency": "INR",
+  "supportedLanguages": [
+    "EN",
+    "FR",
+    "ES"
+  ],
+  "header": {
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    "title": "Microsoft CPQ",
+    "href": "/"
+  },
+  "theme": {
+    "primaryColor": "#123456",
+    "secondaryColor": "#654321"
+  },
+  "pages": [
+    {
+      "name": "configure",
+      "type": "page",
+      "dataPath": "configure",
+      "title": "Configure",
+      "defaultPage": true,
+      "route": "configure",
+      "children": [
+        {
+          "name": "products",
+          "type": "table",
+          "dataPath": "configure.products",
+          "title": "Please add necessary quantity for the products below",
+          "columns": [
+            {
+              "name": "product_id",
+              "title": "ID",
+              "primaryKey": true,
+              "type": "hidden"
+            },
+            {
+              "name": "product_name",
+              "title": "Name",
+              "type": "text"
+            },
+            {
+              "name": "product_qty",
+              "title": "Quantity",
+              "type": "textbox"
+            },
+            {
+              "name": "product_desc",
+              "title": "Description",
+              "type": "text"
+            }
+          ],
+          "data": {
+            "type": "API",
+            "method": "GET",
+            "URL": "http://127.0.0.1:4000/ui-data?tenantId=1001"
+          }
+        },
+        {
+          "name": "save_configuration",
+          "type": "button",
+          "dataPath": "configure.save_configuration",
+          "title": "Save Configuration",
+          "styles": "text-white font-bold py-2 px-4 rounded",
+          "actions": [
+            {
+              "type": "API",
+              "method": "POST",
+              "body": "{{configure.products}}",
+              "dataPath": "configure.products",
+              "URL": "http://127.0.0.1:4000/ui-data",
+              "errorMessage": "Unable to save configuration. Please try again later",
+              "successMessage": "Successfully saved configuration. Please proceed with pricing"
+            },
+            {
+              "type": "NAV",
+              "route": "price",
+              "condition": {
+                "LHS": "{{ONE OF:configure.products product_qty}}",
+                "operator": ">=",
+                "RHS": 1
+              },
+              "errorMessage": "Unable to navigate as product quantity is not specified in the configuration table"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "price",
+      "type": "page",
+      "title": "Price",
+      "dataPath": "price",
+      "route": "price",
+      "displayCondition": "{{product_qty}} > 1",
+      "children": [
+        {
+          "name": "pricing",
+          "type": "pricing_summary",
+          "dataPath": "price.pricing",
+          "grossPricePath": "price.pricing.grossPrice",
+          "title": "",
+          "data": {
+            "type": "STORE",
+            "path": "{{configure.products}}"
+          }
+        },
+        {
+          "name": "approve",
+          "type": "button",
+          "title": "Approve",
+          "styles": "text-white font-bold py-2 px-4 rounded",
+          "actions": [
+            {
+              "type": "NAV",
+              "route": "quote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quote",
+      "type": "page",
+      "title": "Quote",
+      "route": "quote",
+      "children": [
+        {
+          "name": "summary",
+          "type": "html",
+          "params": [
+            {
+              "key": "GROSS_PRICE",
+              "value": "{{price.pricing.grossPrice}}"
+            }
+          ],
+          "html": "<div style='text-align: center;'> <?xml version='1.0' encoding='iso-8859-1'?><svg style='margin: 0px auto;margin-top: 30px; margin-bottom: 30px;' height='100px' width='100px' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 32 32' xml:space='preserve'> <g> <g id='right_x5F_quote'> <g> <path style='fill:#030104;' d='M0,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H0z'/> <path style='fill:#030104;' d='M20,4v12h8c0,4.41-3.586,8-8,8v4c6.617,0,12-5.383,12-12V4H20z'/> </g> </g> </g> </svg> <div> Gross Price is: <span style='font-size: 15pt !important; font-weight: bold;'> {{GROSS_PRICE}} </span> </div> <br /> <p> Thank you for using the CPQ tool. <br /> We have mailed you the generated quotation for the product configuration. Please feel free to edit and re-submit in case of any changes. </p> </div>"
+        }
+      ]
+    }
+  ]
+}

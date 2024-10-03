@@ -1,0 +1,98 @@
+{
+  "tenantId": 1002,
+  "tenantName": "Lenovo Global",
+  "defaultLanguage": "EN",
+  "currency": "INR",
+  "supportedLanguages": [
+    "EN",
+    "FR",
+    "ES"
+  ],
+  "header": {
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg",
+    "title": "Lenovo CPQ",
+    "href": "/"
+  },
+  "theme": {
+    "primaryColor": "#123456",
+    "secondaryColor": "#654321"
+  },
+  "pages": [
+    {
+      "name": "configure",
+      "type": "page",
+      "dataPath": "configure",
+      "title": "Configure",
+      "defaultPage": true,
+      "route": "configure",
+      "children": [
+        {
+          "name": "products",
+          "type": "table",
+          "dataPath": "configure.products",
+          "title": "Please add necessary quantity for the products below",
+          "columns": [
+            {
+              "name": "product_id",
+              "title": "ID",
+              "primaryKey": true,
+              "type": "hidden"
+            },
+            {
+              "name": "product_name",
+              "title": "Name",
+              "type": "text"
+            },
+            {
+              "name": "product_qty",
+              "title": "Quantity",
+              "type": "textbox"
+            },
+            {
+              "name": "product_desc",
+              "title": "Description",
+              "type": "text"
+            }
+          ],
+          "data": {
+            "type": "API",
+            "method": "GET",
+            "URL": "http://127.0.0.1:4000/ui-data?tenantId=1002"
+          }
+        },
+        {
+          "name": "save_configuration",
+          "type": "button",
+          "dataPath": "configure.save_configuration",
+          "title": "Check Availability",
+          "styles": "text-white font-bold py-2 px-4 rounded",
+          "actions": [
+            {
+              "type": "NAV",
+              "route": "quote",
+              "condition": {
+                "LHS": "{{ONE OF:configure.products product_qty}}",
+                "operator": ">=",
+                "RHS": 1
+              },
+              "errorMessage": "Unable to navigate as product quantity is not specified in the configuration table"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quote",
+      "type": "page",
+      "title": "Quote",
+      "route": "quote",
+      "children": [
+        {
+          "name": "summary",
+          "type": "html",
+          "html": "<div style='font-size: 15pt; text-align: center'> Selected products are being reviewed for the availability. Will provide a quote once the manager confirms the availability </div>"
+        }
+      ]
+    }
+  ]
+}

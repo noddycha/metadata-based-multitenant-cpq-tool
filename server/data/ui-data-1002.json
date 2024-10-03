@@ -1,0 +1,30 @@
+[
+  {
+    "product_id": 701,
+    "product_name": "Lenovo Yoga",
+    "product_qty": 0,
+    "product_desc": "Most flexible laptop ever",
+    "product_price": 55000
+  },
+  {
+    "product_id": 702,
+    "product_name": "Lenovo Mobile",
+    "product_qty": 0,
+    "product_desc": "Budget phone by Lenovo",
+    "product_price": 17000
+  },
+  {
+    "product_id": 703,
+    "product_name": "Lenovo Office Suite",
+    "product_qty": 0,
+    "product_desc": "Enterprise software suite",
+    "product_price": 5600
+  },
+  {
+    "product_id": 704,
+    "product_name": "Lenovo Bag",
+    "product_qty": 0,
+    "product_desc": "Quality laptop bag",
+    "product_price": 1300
+  }
+]

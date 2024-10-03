@@ -1,85 +1,40 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue'
+import { RouterView } from 'vue-router'
+import router from './router'
+import { useRoute } from 'vue-router'
+import PageView from './views/PageView.vue';
+import Header from './components/Header.vue'
+import { useUiConfigStore } from './stores/uiConfig';
+
+const uiConfigStore = useUiConfigStore()
+const route = useRoute()
+
+onMounted (async () => {
+  await getUrlQueryParams()
+
+  // Load UI config from the backend through the API
+  await uiConfigStore.getUiConfig(route.query.tenantId || 1001)
+
+  // Adding route of each of the pages from the UI Config
+  uiConfigStore.applicationRoutes.forEach(route => {
+    router.addRoute({ path: route.path, name: route.name, component: PageView })
+  });
+
+  // Identifying and navigating user to defaultPage on load of the page
+  const defaultRoute = uiConfigStore.applicationRoutes.find((route) => route.defaultPage)
+  router.push({
+    name: defaultRoute.name,
+    query: route.query
+  })
+})
+
+const getUrlQueryParams = async () => {    
+  await router.isReady()
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <Header :logo="uiConfigStore.applicationHeader?.logo" :title="uiConfigStore.applicationHeader?.title" :href="uiConfigStore.applicationHeader?.href" />
   <RouterView />
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
