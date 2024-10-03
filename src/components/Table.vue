@@ -16,10 +16,10 @@ onMounted(async () => {
   }
 })
 
-const updateValue = (product_id, event) => {
+const updateValue = (product_id: string | number, eventTarget: EventTarget) => {
   tableData.value.map((row) => {
     if(row.product_id === product_id) {
-      row.product_qty = event.target.value
+      row.product_qty = (eventTarget as HTMLInputElement)?.value
     }
     return row
   })
@@ -45,7 +45,7 @@ const updateValue = (product_id, event) => {
           <td v-for="column of columns" :key="`${column.name}-row.product_id`" class="p-4 border-b border-blue-gray-50">
             <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
               <Text v-if="column.type === 'text'" :text="row[column.name]" />
-              <Textbox v-if="column.type === 'textbox'" :text="row[column.name]" @change="updateValue(row.product_id, $event)" />
+              <Textbox v-if="column.type === 'textbox'" :text="row[column.name]" @change="updateValue(row.product_id, $event.target)" />
               <HiddenTextbox v-if="column.type === 'hidden'" :text="row[column.name]" />
             </p>
           </td>

@@ -1,7 +1,7 @@
 import { computed, ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
 import { UiConfigService } from '../services/api.service'
-import type { Page, uiConfig } from '@/types/uiConfig'
+import type { Page, uiConfig } from '../types/uiConfig'
 
 export const useUiConfigStore = defineStore('uiConfig', () => {
   const applicationUiJSON: Ref<uiConfig | null> = ref(null)

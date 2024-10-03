@@ -21,7 +21,8 @@ export enum ComponentType {
 
 export enum DataActionType {
   API = 'API',
-  STORE = 'STORE'
+  STORE = 'STORE',
+  NAV = 'NAV'
 }
 
 export enum HttpMethod {
@@ -33,7 +34,7 @@ export interface Column {
   name: string
   title: string
   primaryKey?: boolean
-  type: typeof ComponentType
+  type: ComponentType
 }
 
 export interface Data {
@@ -41,12 +42,12 @@ export interface Data {
   method?: string
   URL?: string
   path?: string
-  body?: string
+  body?: string | number
 }
 
 export interface Action {
-  type: typeof DataActionType
-  method?: typeof HttpMethod
+  type: DataActionType
+  method?: HttpMethod
   body?: string
   dataPath?: string
   URL?: string
@@ -60,20 +61,25 @@ export interface Action {
   successMessage?: string
 }
 
+export interface Param {
+  key: string
+  value: string
+}
 export interface Children {
   name: string
-  type: typeof ComponentType
+  type: ComponentType
   dataPath: string
   title: string
   columns?: Column[]
   data?: Data
   actions?: Action[]
   children?: Children[]
+  params?: Param[]
 }
 
 export interface Page {
   name: string
-  type: typeof ComponentType
+  type: ComponentType
   dataPath: string
   title: string
   defaultPage?: true
@@ -85,8 +91,8 @@ export interface uiConfig {
   tenantId: number
   tenantName: string
   defaultLanguage: string
-  currency: typeof Currency
-  supportedLanguages: (typeof Languages)[]
+  currency: Currency
+  supportedLanguages: Languages[]
   header: {
     logo: string
     title: string

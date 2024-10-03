@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { useAppDataStore } from '../stores/appData';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 
 const { name, title, dataPath, grossPricePath, data } = defineProps(["name", "title", "dataPath", "grossPricePath", "data"])
 const appData = useAppDataStore();
 const productData = ref()
-let grossPrice = ref(0)
+let grossPrice:Ref<number> = ref(0)
 
 onMounted(async () => {
   if(data && data.type) {
     const products = await appData.getAppData(data, dataPath);
 
-    products.map((product) => {
+    products.map((product: any) => {
       product.product_gross_price = product.product_qty * product.product_price
       grossPrice.value = grossPrice.value + product.product_gross_price
       return product
@@ -22,7 +22,7 @@ onMounted(async () => {
       body: grossPrice.value
     }, grossPricePath)
     
-    productData.value = products.filter((product) => product.product_qty > 0)
+    productData.value = products.filter((product: any) => product.product_qty > 0)
   }
 })
 

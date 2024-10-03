@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import ApiService from '../services/api.service'
-import type { Data } from '@/types/uiConfig'
+import type { Data } from '../types/uiConfig'
 
 export const useAppDataStore = defineStore('appData', () => {
   const appData = ref({})
@@ -28,7 +28,7 @@ export const useAppDataStore = defineStore('appData', () => {
     }
   }
 
-  const saveAppData = async (dataDestination: Data, path = '') => {
+  const saveAppData = async (dataDestination: Data, path: string = '') => {
     // Storing data in store
     switch (dataDestination.type) {
       case 'API':

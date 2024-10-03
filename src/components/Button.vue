@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { useAppDataStore } from '../stores/appData';
 import router from '../router';
+import { DataActionType, type Action } from '../types/uiConfig';
 
 const { name, title, styles, actions } = defineProps(["name", "title", "styles", "actions"])
 const appData = useAppDataStore()
 
 const runButtonClickHandler = () => {
-  actions.forEach(async (action) => {
+  actions.forEach(async (action: Action) => {
     switch(action.type) {
-      case "API":
+      case DataActionType.API:
         await appData.saveAppData(action, action.dataPath)
         break;
-      case "NAV":
-        router.push(action.route)
+      case DataActionType.NAV:
+        if(action.route) router.push(action.route)
         break;
       default:
     }
