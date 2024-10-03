@@ -29,7 +29,7 @@ const updateValue = (product_id, event) => {
 
 <template>
   <div
-    class="w-7/12 mx-auto my-5 relative flex flex-col h-full text-gray-700 bg-white shadow-md rounded-xl">
+    class="w-10/12 mx-auto my-5 relative flex flex-col h-full text-gray-700 bg-white shadow-md rounded-xl">
     <table class="w-full text-left table-auto min-w-max">
       <thead>
         <tr>
