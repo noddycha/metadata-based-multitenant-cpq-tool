@@ -1,4 +1,4 @@
-# Multitenant CPQ Tool
+# Metadata Based Multitenant CPQ Tool
 
 This is a DEMO project to demonstrate metadata driven frontend as per the requirements of "Expedite Commerce"
 
