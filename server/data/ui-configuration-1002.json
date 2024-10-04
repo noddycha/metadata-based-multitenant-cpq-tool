@@ -27,10 +27,101 @@
       "route": "configure",
       "children": [
         {
+          "name": "products_catalogue",
+          "type": "grid",
+          "styles": "grid grid-cols-4 mx-auto p-10 gap-4",
+          "children": [
+            {
+              "name": "products_information_grid",
+              "type": "card",
+              "title": "Lenovo Yoga",
+              "children": [
+                {
+                  "name": "lenovo_yoga_img",
+                  "type": "image",
+                  "title": "Products Information Image",
+                  "styles": "w-32 mx-auto my-3",
+                  "src": "https://p2-ofp.static.pub/fes/cms/2022/02/22/txqunohet0wlvu5pbyhek705wnlf5g921535.jpg"
+                },
+                {
+                  "name": "lenovo_yoga_text",
+                  "type": "text",
+                  "styles": "text-slate-500",
+                  "title": "Products Information Text",
+                  "text": "Stunning, smart, and sustainably sourced. Amplified with AI. Whatever you dream up, Yoga PCs support you at every step of your creative journey."
+                }
+              ]
+            },
+            {
+              "name": "products_information_grid",
+              "type": "card",
+              "title": "Lenovo Mobile",
+              "children": [
+                {
+                  "name": "lenovo_mobile_img",
+                  "type": "image",
+                  "title": "Products Information Image",
+                  "styles": "w-32 mx-auto my-3",
+                  "src": "https://drop.ndtv.com/TECH/product_database/images/113201624435PM_635_lenovo_lemon_3.jpeg"
+                },
+                {
+                  "name": "lenovo_mobile_text",
+                  "type": "text",
+                  "styles": "text-slate-500",
+                  "title": "Products Information Text",
+                  "text": "Buy Lenovo smartphones with great performance and specifications for best prices"
+                }
+              ]
+            },
+            {
+              "name": "products_information_grid",
+              "type": "card",
+              "title": "Lenovo Suite",
+              "children": [
+                {
+                  "name": "lenovo_suite_img",
+                  "type": "image",
+                  "title": "Products Information Image",
+                  "styles": "w-32 mx-auto my-3",
+                  "src": "https://news.lenovo.com/wp-content/uploads/2024/01/02_ThinkCentre_neo_50a_Gen_5_27_Still_Life_Medium_Office_Setup-1024x576.jpg"
+                },
+                {
+                  "name": "lenovo_suite_text",
+                  "type": "text",
+                  "styles": "text-slate-500",
+                  "title": "Products Information Text",
+                  "text": "Lenovo Smart Workplace Sol — Collaborate seamlessly across all environments with a Lenovo Digital Workplace Solutions."
+                }
+              ]
+            },
+            {
+              "name": "products_information_grid",
+              "type": "card",
+              "title": "Lenovo Laptop Bag",
+              "children": [
+                {
+                  "name": "lenovo_bag_img",
+                  "type": "image",
+                  "title": "Products Information Image",
+                  "styles": "w-32 mx-auto my-3",
+                  "src": "https://5.imimg.com/data5/SELLER/Default/2020/9/NC/JW/MS/23762796/lenovo-laptop-bag.jpg"
+                },
+                {
+                  "name": "lenovo_bag_text",
+                  "type": "text",
+                  "styles": "text-slate-500",
+                  "title": "Products Information Text",
+                  "text": "Shop Lenovo's range of stylish & secure laptop bags, backpacks & cases "
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "products",
           "type": "table",
           "dataPath": "configure.products",
-          "title": "Please add necessary quantity for the products below",
+          "title": "Please add necessary quantity for the products below:",
           "columns": [
             {
               "name": "product_id",

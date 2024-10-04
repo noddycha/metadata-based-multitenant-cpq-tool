@@ -29,6 +29,7 @@
         {
           "name": "products_information",
           "type": "card",
+          "styles": "block mx-auto",
           "title": "Product Catalogue",
           "children": [
             {

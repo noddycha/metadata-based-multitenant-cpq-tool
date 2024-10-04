@@ -14,12 +14,19 @@ export default {
   safelist: [
     'grid',
     'grid-cols-2',
+    'grid-cols-4',
     'w-32',
+    'w-44',
     'mx-auto',
     'my-4',
     'my-10',
     'font-light',
-    'text-slate-500'
+    'text-slate-500',
+    'my-3',
+    'block',
+    'inline-block',
+    'p-10',
+    'gap-4'
   ],
   plugins: []
 }
