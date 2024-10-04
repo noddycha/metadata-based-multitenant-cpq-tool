@@ -10,15 +10,15 @@ Multitenancy of the frontend is demonstrated with frontend dynamically changing 
 
 Here is the list of components / functionalities supported by the frontend:
 
-- Pages: Each step / stage of the frontend can be represented as a Page with it's own title, routing and children
-- Navigation: Actions could be defined on supported components to be able to navigate from one page to the other page of the application
-- Header: Application header which can be customized by changing it's logo, title and href
-- Table: A generic table component which loads data either from the store or from the API configured in the data property
-- PricingSummary: A CPQ usecase specific component which calculates pricing of the products and stores the data in the application store
-- Button: Navigation option used to save data or navigate between pages (routes)
-- HtmlText: A generic component that accepts HTML text and renders the respective HTML on the page. Also, accepts data params that could be used in the HTML template
-- Textbox: Form input component which allows user to edit and update a specific data. Has handlers to update the user data in the dataPath of the store
-- Text: A simple component that displays text on the page
+- **Pages**: Each step / stage of the frontend can be represented as a Page with it's own title, routing and children
+- **Navigation**: Actions could be defined on supported components to be able to navigate from one page to the other page of the application
+- **Header**: Application header which can be customized by changing it's logo, title and href
+- **Table**: A generic table component which loads data either from the store or from the API configured in the data property
+- **PricingSummary**: A CPQ usecase specific component which calculates pricing of the products and stores the data in the application store
+- **Button**: Navigation option used to save data or navigate between pages (routes)
+- **HtmlText**: A generic component that accepts HTML text and renders the respective HTML on the page. Also, accepts data params that could be used in the HTML template
+- **Textbox**: Form input component which allows user to edit and update a specific data. Has handlers to update the user data in the dataPath of the store
+- **Text**: A simple component that displays text on the page
 
 ## What could go wrong?
 
