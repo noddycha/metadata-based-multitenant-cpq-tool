@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { onMounted, ref, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
-import { useUiConfigStore } from '../stores/uiConfig';
+import { onMounted, ref, watch, type Ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { useUiConfigStore } from '../stores/uiConfig'
 import MetadataProcessor from '../components/MetadataProcessor.vue'
 
 const uiConfigStore = useUiConfigStore()
-const route = useRoute();
+const route = useRoute()
 const renderComponent: Ref<boolean> = ref(true)
 
 watch(route, (to) => {
@@ -31,7 +31,11 @@ onMounted(() => {
 
 <template>
   <main>
-    <div class="text-center my-5"> <h2 class="font-bold"> {{ currentPageConfig?.title }} </h2> </div>
+    <div class="text-center my-5">
+      <h2 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900">
+        {{ currentPageConfig?.title }}
+      </h2>
+    </div>
     <MetadataProcessor v-if="renderComponent" :children="currentPageConfig?.children" />
   </main>
 </template>

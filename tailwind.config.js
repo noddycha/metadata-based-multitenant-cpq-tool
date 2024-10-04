@@ -11,5 +11,15 @@ export default {
       }
     }
   },
+  safelist: [
+    'grid',
+    'grid-cols-2',
+    'w-32',
+    'mx-auto',
+    'my-4',
+    'my-10',
+    'font-light',
+    'text-slate-500'
+  ],
   plugins: []
 }

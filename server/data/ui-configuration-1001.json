@@ -27,16 +27,118 @@
       "route": "configure",
       "children": [
         {
+          "name": "products_information",
+          "type": "card",
+          "title": "Product Catalogue",
+          "children": [
+            {
+              "name": "products_information_grid",
+              "type": "grid",
+              "title": "Products Information Grid",
+              "children": [
+                {
+                  "name": "microsoft_home_11",
+                  "type": "grid",
+                  "title": "",
+                  "styles": "grid grid-cols-2 my-10",
+                  "children": [
+                    {
+                      "name": "microsoft_home_11_img",
+                      "type": "image",
+                      "title": "Products Information Image",
+                      "styles": "w-32 mx-auto",
+                      "src": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RWSCEi?ver=f762&q=90&m=6&h=270&w=270&b=%23FFFFFFFF&f=jpg&o=f&aim=true"
+                    },
+                    {
+                      "name": "microsoft_home_11_text",
+                      "type": "text",
+                      "styles": "text-slate-500",
+                      "title": "Products Information Text",
+                      "text": "Windows 11 is the one place for it all. With a fresh new feel and tools that make it easier to be efficient, it has what you need for whatever’s next. Buy and download Windows 11 Home to experience the benefits today."
+                    }
+                  ]
+                },
+                {
+                  "name": "microsoft_office_365",
+                  "type": "grid",
+                  "title": "",
+                  "styles": "grid grid-cols-2 my-10",
+                  "children": [
+                    {
+                      "name": "microsoft_office_365_text",
+                      "type": "text",
+                      "styles": "text-slate-500",
+                      "title": "",
+                      "text": "Collaborate for free with online versions of Microsoft Word, PowerPoint, Excel, and OneNote. Save documents, workbooks, and presentations online, in OneDrive. Share them with others and work together at the same time."
+                    },
+                    {
+                      "name": "microsoft_office_365_img",
+                      "type": "image",
+                      "title": "",
+                      "styles": "w-32 mx-auto",
+                      "src": "https://cloudminister.com/assets/img/hosting/office365.webp"
+                    }
+                  ]
+                },
+                {
+                  "name": "microsoft_teams",
+                  "type": "grid",
+                  "title": "",
+                  "styles": "grid grid-cols-2 my-10",
+                  "children": [
+                    {
+                      "name": "microsoft_teams_img",
+                      "type": "image",
+                      "title": "",
+                      "styles": "w-32 mx-auto",
+                      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/120px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png"
+                    },
+                    {
+                      "name": "microsoft_teams_text",
+                      "type": "text",
+                      "styles": "text-slate-500",
+                      "title": "",
+                      "text": "Working together is easier with Microsoft Teams. Tools and files are always available in one place that's designed to help you connect naturally, stay organized and bring ideas to life."
+                    }
+                  ]
+                },
+                {
+                  "name": "microsoft_copilot",
+                  "type": "grid",
+                  "title": "",
+                  "styles": "grid grid-cols-2 my-10",
+                  "children": [
+                    {
+                      "name": "microsoft_copilot_text",
+                      "type": "text",
+                      "styles": "text-slate-500",
+                      "title": "",
+                      "text": "Microsoft Copilot is your companion to inform, entertain, and inspire. Get advice, feedback, and straightforward answers. Try Copilot now."
+                    },
+                    {
+                      "name": "microsoft_copilot_img",
+                      "type": "image",
+                      "title": "",
+                      "styles": "w-32 mx-auto",
+                      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Microsoft_365_Copilot_Icon.svg/120px-Microsoft_365_Copilot_Icon.svg.png"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "products",
           "type": "table",
           "dataPath": "configure.products",
-          "title": "Please add necessary quantity for the products below",
+          "title": "Please add necessary quantity for the products below:",
           "columns": [
             {
               "name": "product_id",
               "title": "ID",
               "primaryKey": true,
-              "type": "hidden"
+              "type": "text"
             },
             {
               "name": "product_name",

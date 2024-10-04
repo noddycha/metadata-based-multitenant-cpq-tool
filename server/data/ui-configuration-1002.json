@@ -36,7 +36,7 @@
               "name": "product_id",
               "title": "ID",
               "primaryKey": true,
-              "type": "hidden"
+              "type": "text"
             },
             {
               "name": "product_name",

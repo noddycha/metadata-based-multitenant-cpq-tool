@@ -16,7 +16,12 @@ export enum ComponentType {
   HIDDEN = 'hidden',
   TEXT = 'text',
   TEXTBOX = 'textbox',
-  BUTTON = 'button'
+  BUTTON = 'button',
+  HTMLTEXT = 'html',
+  PRICING_SUMMARY = 'pricing_summary',
+  GRID = 'grid',
+  IMAGE = 'image',
+  CARD = 'card'
 }
 
 export enum DataActionType {
