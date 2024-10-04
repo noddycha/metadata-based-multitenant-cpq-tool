@@ -43,6 +43,11 @@ Here is the list of components / functionalities supported by the frontend:
 - Step and Form validations
 - Evaluating expressions using dynamic template variables withing the configuration
 
+## Prerequisites
+
+- Node v20+
+- NPM v10.8+
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
