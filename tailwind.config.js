@@ -28,5 +28,6 @@ export default {
     'p-10',
     'gap-4'
   ],
+  // safelist: [{ pattern: /([a-zA-Z]+)-./ }],
   plugins: []
 }
