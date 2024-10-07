@@ -160,7 +160,7 @@
           "actions": [
             {
               "type": "NAV",
-              "route": "quote",
+              "route": "verification",
               "condition": {
                 "LHS": "{{ONE OF:configure.products product_qty}}",
                 "operator": ">=",
@@ -173,15 +173,15 @@
       ]
     },
     {
-      "name": "quote",
+      "name": "verification",
       "type": "page",
-      "title": "Quote",
-      "route": "quote",
+      "title": "Verification",
+      "route": "verification",
       "children": [
         {
           "name": "summary",
           "type": "html",
-          "html": "<div style='font-size: 15pt; text-align: center'> Selected products are being reviewed for the availability. Will provide a quote once the manager confirms the availability </div>"
+          "html": "<div style='font-size: 15pt; text-align: center'> Selected products are being reviewed for the availability. Will provide pricing once the manager confirms the availability </div>"
         }
       ]
     }
