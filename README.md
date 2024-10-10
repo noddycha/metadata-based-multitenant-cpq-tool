@@ -7,12 +7,14 @@ This is a DEMO project to demonstrate metadata driven frontend as per the requir
 **1. Input Structure**
 
 The metadata (JSON) which is used to build the UI on the frontend dynamically (which has the configuration of 3 steps / pages of the CPQ tool i.e Configure, Price and Quote) is available in:
-* Microsoft UI Configuration: `server/data/ui-configuration-1001.json`
-* Lenovo UI Configuration: `server/data/ui-configuration-1002.json`
 
-The UI data which is loaded inside these components are available in 
-* Microsoft UI Data: `server/data/ui-data-1001.json`
-* Lenovo UI Data: `server/data/ui-data-1002.json`
+- Microsoft UI Configuration: `server/data/ui-configuration-1001.json`
+- Lenovo UI Configuration: `server/data/ui-configuration-1002.json`
+
+The UI data which is loaded inside these components are available in
+
+- Microsoft UI Data: `server/data/ui-data-1001.json`
+- Lenovo UI Data: `server/data/ui-data-1002.json`
 
 Multitenancy of the frontend is demonstrated with frontend dynamically changing layout, components and functionality based on the UI configuration specific to the tenant (using tenantId as a query param for the application). Each step is handled as a route in the VueJS and each page can have nested components under the `children` property.
 
@@ -34,7 +36,6 @@ Here is the list of components / functionalities supported by the frontend:
 - **Textbox**: Form input component which allows user to edit and update a specific data. Has handlers to update the user data in the dataPath of the store
 - **Text**: Component that displays plain text on the page
 
-
 **3. Metadata Processor**
 
 The `MetadataProcessor (src/components/MetadataProcessor.vue)` vue component in the application is responsible for handling the component structure and visibility based on the UI metadata. This component is used recurssively for the pages' children to render all the nested components as per the configuration.
@@ -42,8 +43,9 @@ The `MetadataProcessor (src/components/MetadataProcessor.vue)` vue component in 
 **4. Support data flow**
 
 Data is passed / shared between the components in the following 2 approaches:
-* Passed: When the data is passed from a parent component to the child component, Vue *Props* are used to pass the data
-* Shared: When the data is supposed to be shared across components or needs a more global scope of availability, the data is stored and shared via the application store specific to the data using *Pinia state manager*
+
+- Passed: When the data is passed from a parent component to the child component, Vue _Props_ are used to pass the data
+- Shared: When the data is supposed to be shared across components or needs a more global scope of availability, the data is stored and shared via the application store specific to the data using _Pinia state manager_
 
 **5. What Could Go Wrong**
 
@@ -55,6 +57,8 @@ Data is passed / shared between the components in the following 2 approaches:
 - It's **hard to debug** issues as the visibility is very less for the user who is configuring the metadata
 - Since the frontend is multitenant, if the **scope of data on both configuration and UI data** is not managed correctly, might cause user data safety issues
 - If the **component rendering failures are not handled correctly**, this might create a bad user experience for the end user
+- **Testing a metadata driven frontend would be tricky** as there are lots of combinations and configurations which would have to be considered
+- If **proper training is not done across the stakeholders**, there is a chance of incorrect usage of the product
 
 ## Future enhancements
 
@@ -66,6 +70,8 @@ Data is passed / shared between the components in the following 2 approaches:
 - Automated Deployments
 - Step and Form validations
 - Evaluating expressions using dynamic template variables withing the configuration
+- Storybook integration
+- Depending on the elaborate project requirements, migrate to NuxtJS (for sake of better CORS handling and Security)
 
 ## Prerequisites
 

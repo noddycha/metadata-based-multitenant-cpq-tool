@@ -2,10 +2,10 @@
 import { useAppDataStore } from '../stores/appData'
 import { onMounted, ref } from 'vue'
 
-import Text from './Text.vue'
-import Textbox from './Textbox.vue'
+import Text from './GenericText.vue'
+import Textbox from './GenericTextbox.vue'
 
-const { name, title, dataPath, columns, data } = defineProps([
+const { title, dataPath, columns, data } = defineProps([
   'name',
   'title',
   'dataPath',
@@ -22,7 +22,7 @@ onMounted(async () => {
 })
 
 const updateValue = (product_id: string | number, eventTarget: EventTarget) => {
-  tableData.value.map((row) => {
+  tableData.value.map((row: any) => {
     if (row.product_id === product_id) {
       row.product_qty = (eventTarget as HTMLInputElement)?.value
     }

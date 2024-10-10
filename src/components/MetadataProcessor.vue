@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const { children } = defineProps(['children'])
-import Table from './Table.vue'
-import Button from './Button.vue'
-import HtmlText from './HtmlText.vue'
+import Table from './GenericTable.vue'
+import Button from './GenericButton.vue'
+import HtmlText from './GenericHtmlText.vue'
 import PricingSummary from './PricingSummary.vue'
-import Card from './Card.vue'
-import Grid from './Grid.vue'
-import Image from './Image.vue'
-import Text from './Text.vue'
+import Card from './GenericCard.vue'
+import Grid from './GenericGrid.vue'
+import Image from './GenericImage.vue'
+import Text from './GenericText.vue'
 
 import { ComponentType } from '../types/uiConfig'
 </script>

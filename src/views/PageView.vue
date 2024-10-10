@@ -3,12 +3,13 @@ import { onMounted, ref, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUiConfigStore } from '../stores/uiConfig'
 import MetadataProcessor from '../components/MetadataProcessor.vue'
+import type { Page } from '@/types/uiConfig'
 
 const uiConfigStore = useUiConfigStore()
 const route = useRoute()
 const renderComponent: Ref<boolean> = ref(true)
 
-watch(route, (to) => {
+watch(route, () => {
   renderComponent.value = false
 
   setTimeout(() => {
@@ -18,10 +19,10 @@ watch(route, (to) => {
   loadPageConfig()
 })
 
-let currentPageConfig = ref()
+let currentPageConfig: Ref<Page | null> = ref(null)
 
 const loadPageConfig = () => {
-  currentPageConfig.value = uiConfigStore.getPageConfig(route?.name as string)
+  currentPageConfig.value = uiConfigStore.getPageConfig(route?.name as string) || null
 }
 
 onMounted(() => {

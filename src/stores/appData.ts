@@ -4,7 +4,7 @@ import ApiService from '../services/api.service'
 import type { Data } from '../types/uiConfig'
 
 export const useAppDataStore = defineStore('appData', () => {
-  const appData = ref({})
+  const appData: any = ref({})
 
   const getAppData = async (dataSource: Data, path: string = '') => {
     switch (dataSource.type) {
@@ -47,8 +47,8 @@ export const useAppDataStore = defineStore('appData', () => {
     }
   }
 
-  const parseAndFetchFromPath = (data) => {
-    if (data && data.startsWith('{{') && data.endsWith('}}')) {
+  const parseAndFetchFromPath = (data: string | number) => {
+    if (data && typeof data === 'string' && data.startsWith('{{') && data.endsWith('}}')) {
       return appData.value[data.replace('{{', '').replace('}}', '')]
     }
 

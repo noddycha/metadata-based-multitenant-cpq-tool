@@ -30,8 +30,8 @@ export const useUiConfigStore = defineStore('uiConfig', () => {
     }
   }
 
-  const getPageConfig = (name: string) => {
-    return applicationUiJSON.value?.pages.find((page: Page) => page.name === name)
+  const getPageConfig = (name: string): Page | null => {
+    return applicationUiJSON.value?.pages.find((page: Page) => page.name === name) || null
   }
 
   return { applicationUiJSON, applicationRoutes, applicationHeader, getUiConfig, getPageConfig }
