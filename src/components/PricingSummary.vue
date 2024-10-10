@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import type { Data } from '@/types/uiConfig'
 import { useAppDataStore } from '../stores/appData'
 import { onMounted, ref, type Ref } from 'vue'
 
-const { dataPath, grossPricePath, data } = defineProps(['dataPath', 'grossPricePath', 'data'])
+interface Props {
+  dataPath: string
+  grossPricePath: string
+  data: Data
+}
+
+const { dataPath, grossPricePath, data } = defineProps<Props>()
 const appData = useAppDataStore()
 const productData = ref()
 let grossPrice: Ref<number> = ref(0)

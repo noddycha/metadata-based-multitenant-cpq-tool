@@ -3,7 +3,12 @@ import { onMounted, ref } from 'vue'
 import { useAppDataStore } from '../stores/appData'
 import type { Param } from '../types/uiConfig'
 
-const { html, params } = defineProps(['html', 'params'])
+interface Props {
+  html: string
+  params: Param[]
+}
+
+const { html, params } = defineProps<Props>()
 const appData = useAppDataStore()
 const htmlText = ref(html)
 

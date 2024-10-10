@@ -4,8 +4,17 @@ import { onMounted, ref } from 'vue'
 
 import Text from './GenericText.vue'
 import Textbox from './GenericTextbox.vue'
+import type { Column, Data } from '@/types/uiConfig'
 
-const { title, dataPath, columns, data } = defineProps(['title', 'dataPath', 'columns', 'data'])
+interface Props {
+  title: string
+  styles: string
+  dataPath: string
+  columns: Column[]
+  data: Data
+}
+
+const { title, dataPath, columns, data } = defineProps<Props>()
 const appData = useAppDataStore()
 const tableData = ref()
 
@@ -58,7 +67,7 @@ const updateValue = (product_id: string | number, eventTarget: EventTarget) => {
             <p
               class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900"
             >
-              <Text v-if="column.type === 'text'" :text="row[column.name]" />
+              <Text v-if="column.type === 'text'" :text="row[column.name]" styles="w-full" />
               <Textbox
                 v-if="column.type === 'textbox'"
                 :text="row[column.name]"

@@ -1,7 +1,14 @@
 <script setup lang="ts">
+import type { Children } from '@/types/uiConfig'
 import MetadataProcessor from './MetadataProcessor.vue'
 
-const { title, styles, children } = defineProps(['title', 'styles', 'children'])
+interface Props {
+  title: string
+  styles: string
+  children: Children
+}
+
+const { title, styles, children } = defineProps<Props>()
 </script>
 
 <template>

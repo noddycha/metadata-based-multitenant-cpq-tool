@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const { logo, title, href } = defineProps(['logo', 'title', 'href'])
+interface Props {
+  logo: string
+  title: string
+  href: string
+}
+
+const { logo, title, href } = defineProps<Props>()
 </script>
 
 <template>
