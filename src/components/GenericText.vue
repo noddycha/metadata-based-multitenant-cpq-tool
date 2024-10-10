@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { name, title, text, styles } = defineProps(['name', 'title', 'text', 'styles'])
+const { text, styles } = defineProps(['text', 'styles'])
 </script>
 
 <template>

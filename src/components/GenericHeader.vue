@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const { logo, title, href } = defineProps(["logo", "title", "href"])
-
+const { logo, title, href } = defineProps(['logo', 'title', 'href'])
 </script>
 
 <template>

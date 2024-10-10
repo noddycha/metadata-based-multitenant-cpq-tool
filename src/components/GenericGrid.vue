@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import MetadataProcessor from './MetadataProcessor.vue'
 
-const { name, title, styles, children } = defineProps(['name', 'title', 'styles', 'children'])
+const { styles, children } = defineProps(['styles', 'children'])
 </script>
 
 <template>

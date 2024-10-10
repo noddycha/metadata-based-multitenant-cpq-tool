@@ -3,7 +3,7 @@ import { useAppDataStore } from '../stores/appData'
 import router from '../router'
 import { DataActionType, type Action } from '../types/uiConfig'
 
-const { title, actions } = defineProps(['name', 'title', 'styles', 'actions'])
+const { title, actions } = defineProps(['title', 'actions'])
 const appData = useAppDataStore()
 
 const runButtonClickHandler = () => {

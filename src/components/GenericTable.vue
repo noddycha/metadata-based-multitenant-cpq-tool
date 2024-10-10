@@ -5,13 +5,7 @@ import { onMounted, ref } from 'vue'
 import Text from './GenericText.vue'
 import Textbox from './GenericTextbox.vue'
 
-const { title, dataPath, columns, data } = defineProps([
-  'name',
-  'title',
-  'dataPath',
-  'columns',
-  'data'
-])
+const { title, dataPath, columns, data } = defineProps(['title', 'dataPath', 'columns', 'data'])
 const appData = useAppDataStore()
 const tableData = ref()
 
